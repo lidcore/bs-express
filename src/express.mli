@@ -1,11 +1,11 @@
 type t
 
-type request = private {
-  body:    string Js.Dict.t;
-  headers: string Js.Dict.t;
-  params:  string Js.Dict.t;
-  query:   string Js.Dict.t
-} [@@bs.deriving abstract]
+type request
+
+val body    : request -> string Js.Dict.t
+val headers : request -> string Js.Dict.t
+val params  : request -> string Js.Dict.t
+val query   : request -> string Js.Dict.t
 
 type response
 

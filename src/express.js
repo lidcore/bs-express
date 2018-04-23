@@ -13,6 +13,22 @@ function init($staropt$star, _) {
   return app;
 }
 
+function body(prim) {
+  return prim.body;
+}
+
+function headers(prim) {
+  return prim.headers;
+}
+
+function params(prim) {
+  return prim.params;
+}
+
+function query(prim) {
+  return prim.query;
+}
+
 function status(prim, prim$1) {
   return prim.status(prim$1);
 }
@@ -37,6 +53,10 @@ function put(prim, prim$1, prim$2) {
   return /* () */0;
 }
 
+exports.body = body;
+exports.headers = headers;
+exports.params = params;
+exports.query = query;
 exports.status = status;
 exports.end_ = end_;
 exports.init = init;
