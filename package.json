@@ -21,16 +21,17 @@
   ],
   "peerDependencies": {
     "bs-platform": "^3.0.0",
+    "cors": "^2.8.4",
     "express": "^4.16.3"
   },
   "devDependencies": {
     "bs-platform": "^3.0.0",
+    "cors": "^2.8.4",
     "express": "^4.16.3"
   },
   "author": "Lidcore IT <it@lidcore.com>",
   "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/lidcore/bs-express/issues"
-  },
-  "homepage": "https://github.com/lidcore/bs-express"
+  "homepage": "https://github.com/lidcore/bs-express",
+  "dependencies": {
+  }
 }
