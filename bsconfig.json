@@ -1,0 +1,15 @@
+{
+  "name": "@lidcore/bs-express",
+  "namespace": true,
+  "version": "1.0.0",
+  "sources": [
+    "src"
+  ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".js",
+  "bs-dependencies": [
+  ]
+}

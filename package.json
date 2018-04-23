@@ -1,0 +1,36 @@
+{
+  "name": "@lidcore/bs-express",
+  "version": "1.0.0",
+  "description": "BuckleScript bindings for express.",
+  "main": "lib/js/src/express.js",
+  "scripts": {
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lidcore/bs-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lidcore/bs-express/issues"
+  },
+  "keywords": [
+    "bucklescript",
+    "express"
+  ],
+  "peerDependencies": {
+    "bs-platform": "^3.0.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "bs-platform": "^3.0.0",
+    "express": "^4.16.3"
+  },
+  "author": "Lidcore IT <it@lidcore.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/lidcore/bs-express/issues"
+  },
+  "homepage": "https://github.com/lidcore/bs-express"
+}
