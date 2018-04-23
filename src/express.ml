@@ -23,3 +23,5 @@ type handler = request -> response -> unit
 external get  : t -> string -> handler -> unit = "" [@@bs.send]
 external post : t -> string -> handler -> unit = "" [@@bs.send]
 external put  : t -> string -> handler -> unit = "" [@@bs.send]
+external status : response -> int -> response = "" [@@bs.send]
+external end_ : response -> unit = "end" [@@bs.send]

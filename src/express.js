@@ -13,6 +13,15 @@ function init($staropt$star, _) {
   return app;
 }
 
+function status(prim, prim$1) {
+  return prim.status(prim$1);
+}
+
+function end_(prim) {
+  prim.end();
+  return /* () */0;
+}
+
 function get(prim, prim$1, prim$2) {
   prim.get(prim$1, prim$2);
   return /* () */0;
@@ -28,6 +37,8 @@ function put(prim, prim$1, prim$2) {
   return /* () */0;
 }
 
+exports.status = status;
+exports.end_ = end_;
 exports.init = init;
 exports.get = get;
 exports.post = post;

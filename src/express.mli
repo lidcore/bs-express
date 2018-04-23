@@ -8,6 +8,10 @@ type request = private {
 } [@@bs.deriving abstract]
 
 type response
+
+val status : response -> int -> response
+val end_   : response -> unit
+
 type handler = request -> response -> unit
 
 val init : ?useCors:bool -> unit -> t
