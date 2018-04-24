@@ -20,7 +20,7 @@ type request = private {
 type response
 
 external status : response -> int -> response = "" [@@bs.send]
-external json : response -> 'a Js.t -> response = "" [@@bs.send]
+external json : response -> 'a Js.t -> unit = "" [@@bs.send]
 external end_ : response -> unit = "end" [@@bs.send]
 
 type handler = request -> response -> unit

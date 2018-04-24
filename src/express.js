@@ -34,7 +34,8 @@ function status(prim, prim$1) {
 }
 
 function json(prim, prim$1) {
-  return prim.json(prim$1);
+  prim.json(prim$1);
+  return /* () */0;
 }
 
 function end_(prim) {
