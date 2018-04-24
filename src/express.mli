@@ -15,6 +15,17 @@ val end_   : response -> unit
 type handler = request -> response -> unit
 
 val init : ?useCors:bool -> unit -> t
-val get  : t -> string -> handler -> unit
-val post : t -> string -> handler -> unit
-val put  : t -> string -> handler -> unit
+
+module type Routes_t = sig
+  type router
+  val get  : router -> string -> handler -> unit
+  val post : router -> string -> handler -> unit
+  val put  : router -> string -> handler -> unit
+end
+
+include Routes_t with type router := t
+
+module Router : sig
+  include Routes_t
+  val init : t -> router
+end
