@@ -33,6 +33,10 @@ function status(prim, prim$1) {
   return prim.status(prim$1);
 }
 
+function json(prim, prim$1) {
+  return prim.json(prim$1);
+}
+
 function end_(prim) {
   prim.end();
   return /* () */0;
@@ -84,6 +88,7 @@ exports.headers = headers;
 exports.params = params;
 exports.query = query;
 exports.status = status;
+exports.json = json;
 exports.end_ = end_;
 exports.init = init;
 exports.get = get;

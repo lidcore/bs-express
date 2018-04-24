@@ -10,6 +10,7 @@ val query   : request -> string Js.Dict.t
 type response
 
 val status : response -> int -> response
+val json   : response -> 'a Js.t -> response
 val end_   : response -> unit
 
 type handler = request -> response -> unit
