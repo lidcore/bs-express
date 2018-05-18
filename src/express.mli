@@ -2,10 +2,11 @@ type t
 
 type request
 
-val body    : request -> string Js.Dict.t
-val headers : request -> string Js.Dict.t
-val params  : request -> string Js.Dict.t
-val query   : request -> string Js.Dict.t
+val body        : request -> string Js.Dict.t
+val headers     : request -> string Js.Dict.t
+val params      : request -> string Js.Dict.t
+val query       : request -> string Js.Dict.t
+val originalUrl : request -> string
 
 type response
 

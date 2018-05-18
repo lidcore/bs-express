@@ -11,10 +11,11 @@ let init ?(useCors=true) () =
   app
 
 type request = private {
-  body:    string Js.Dict.t;
-  headers: string Js.Dict.t;
-  params:  string Js.Dict.t;
-  query:   string Js.Dict.t
+  body:        string Js.Dict.t;
+  headers:     string Js.Dict.t;
+  params:      string Js.Dict.t;
+  query:       string Js.Dict.t;
+  originalUrl: string
 } [@@bs.deriving abstract]
 
 type response

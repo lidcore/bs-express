@@ -29,6 +29,10 @@ function query(prim) {
   return prim.query;
 }
 
+function originalUrl(prim) {
+  return prim.originalUrl;
+}
+
 function status(prim, prim$1) {
   return prim.status(prim$1);
 }
@@ -88,6 +92,7 @@ exports.body = body;
 exports.headers = headers;
 exports.params = params;
 exports.query = query;
+exports.originalUrl = originalUrl;
 exports.status = status;
 exports.json = json;
 exports.end_ = end_;
