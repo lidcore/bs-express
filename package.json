@@ -1,6 +1,6 @@
 {
   "name": "@lidcore/bs-express",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "BuckleScript bindings for express.",
   "main": "lib/js/src/express.js",
   "scripts": {
@@ -19,8 +19,13 @@
     "bucklescript",
     "express"
   ],
+  "peerDependencies": {
+    "bs-platform": "^4.0.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^4.0.0"
+  },
   "dependencies": {
-    "bs-platform": "^3.1.4",
     "cors": "^2.8.4",
     "express": "^4.16.3"
   },
