@@ -1,8 +1,8 @@
 type t
-type express_module
+type middleware
 external express : unit -> t = "express" [@@bs.module]
-external use : t -> express_module -> unit = "" [@@bs.send]
-external cors : unit -> express_module = "cors" [@@bs.module]
+external use : t -> middleware -> unit = "" [@@bs.send]
+external cors : unit -> middleware = "cors" [@@bs.module]
 
 let init ?(useCors=true) () =
   let app = express () in

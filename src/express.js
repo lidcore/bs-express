@@ -63,6 +63,11 @@ function listen(prim, prim$1) {
   return /* () */0;
 }
 
+function use(prim, prim$1) {
+  prim.use(prim$1);
+  return /* () */0;
+}
+
 function get(prim, prim$1, prim$2) {
   prim.get(prim$1, prim$2);
   return /* () */0;
@@ -116,6 +121,7 @@ exports.pipe = pipe;
 exports.end_ = end_;
 exports.init = init;
 exports.listen = listen;
+exports.use = use;
 exports.get = get;
 exports.post = post;
 exports.put = put;

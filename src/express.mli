@@ -21,6 +21,10 @@ type handler = request -> response -> unit
 val init : ?useCors:bool -> unit -> t
 val listen : t -> int -> unit
 
+type middleware
+
+val use : t -> middleware -> unit
+
 module type Routes_t = sig
   type router
   val get  : router -> string -> handler -> unit
