@@ -22,7 +22,12 @@ type response
 
 external status : response -> int -> response = "" [@@bs.send]
 external json : response -> 'a Js.t -> unit = "" [@@bs.send]
+external writeHead : response -> int -> string Js.null_undefined  -> string Js.Dict.t Js.null_undefined -> unit = "" [@@bs.send]
+external pipe : LidcoreBsNode.Stream.readable -> response -> unit = "" [@@bs.send]
 external end_ : response -> unit = "end" [@@bs.send]
+
+let writeHead resp ?headers ?statusMessage code =
+  writeHead resp code (Js.Null_undefined.fromOption statusMessage) (Js.Null_undefined.fromOption headers)
 
 type handler = request -> response -> unit
 
