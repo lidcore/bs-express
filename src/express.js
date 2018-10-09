@@ -58,6 +58,11 @@ function end_(prim) {
   return /* () */0;
 }
 
+function listen(prim, prim$1) {
+  prim.listen(prim$1);
+  return /* () */0;
+}
+
 function get(prim, prim$1, prim$2) {
   prim.get(prim$1, prim$2);
   return /* () */0;
@@ -110,6 +115,7 @@ exports.writeHead = writeHead;
 exports.pipe = pipe;
 exports.end_ = end_;
 exports.init = init;
+exports.listen = listen;
 exports.get = get;
 exports.post = post;
 exports.put = put;

@@ -10,6 +10,8 @@ let init ?(useCors=true) () =
     use app (cors());
   app
 
+external listen : t -> int -> unit = "" [@@bs.send]
+
 type request = private {
   body:        string Js.Dict.t;
   headers:     string Js.Dict.t;

@@ -19,6 +19,7 @@ val end_      : response -> unit
 type handler = request -> response -> unit
 
 val init : ?useCors:bool -> unit -> t
+val listen : t -> int -> unit
 
 module type Routes_t = sig
   type router
