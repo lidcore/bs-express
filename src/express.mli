@@ -12,7 +12,7 @@ type response
 
 val status    : response -> int -> response
 val json      : response -> 'a Js.t -> unit
-val writeHead : response -> ?headers:(string Js.Dict.t) -> ?statusMessage:string -> int -> unit
+val writeHead : response -> ?headers:(string Js.Dict.t) -> int -> unit
 val pipe      : LidcoreBsNode.Stream.readable -> response -> unit
 val end_      : response -> unit
 

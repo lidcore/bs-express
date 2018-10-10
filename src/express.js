@@ -14,8 +14,8 @@ function init($staropt$star, _) {
   return app;
 }
 
-function writeHead(resp, headers, statusMessage, code) {
-  resp.writeHead(code, Js_null_undefined.fromOption(statusMessage), Js_null_undefined.fromOption(headers));
+function writeHead(resp, headers, code) {
+  resp.writeHead(code, Js_null_undefined.fromOption(headers));
   return /* () */0;
 }
 

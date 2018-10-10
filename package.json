@@ -1,6 +1,6 @@
 {
   "name": "@lidcore/bs-express",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "BuckleScript bindings for express.",
   "main": "lib/js/src/express.js",
   "scripts": {
