@@ -28,6 +28,7 @@ external writeHead : response -> int -> string Js.Dict.t Js.null_undefined -> un
 external pipe : LidcoreBsNode.Stream.readable -> response -> unit = "" [@@bs.send]
 external send : response -> string -> response = "" [@@bs.send]
 external end_ : response -> unit = "end" [@@bs.send]
+external location : response -> string -> response = "" [@@bs.send]
 
 let writeHead resp ?headers code =
   writeHead resp code (Js.Null_undefined.fromOption headers)

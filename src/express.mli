@@ -10,12 +10,13 @@ val originalUrl : request -> string
 
 type response
 
-val status    : response -> int -> response
+val end_      : response -> unit
 val json      : response -> 'a Js.t -> unit
-val writeHead : response -> ?headers:(string Js.Dict.t) -> int -> unit
+val location  : response -> string -> response
 val pipe      : LidcoreBsNode.Stream.readable -> response -> unit
 val send      : response -> string -> response
-val end_      : response -> unit
+val status    : response -> int -> response
+val writeHead : response -> ?headers:(string Js.Dict.t) -> int -> unit
 
 type handler = request -> response -> unit
 

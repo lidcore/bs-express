@@ -39,13 +39,18 @@ function originalUrl(prim) {
   return prim.originalUrl;
 }
 
-function status(prim, prim$1) {
-  return prim.status(prim$1);
+function end_(prim) {
+  prim.end();
+  return /* () */0;
 }
 
 function json(prim, prim$1) {
   prim.json(prim$1);
   return /* () */0;
+}
+
+function $$location(prim, prim$1) {
+  return prim.location(prim$1);
 }
 
 function pipe(prim, prim$1) {
@@ -57,9 +62,8 @@ function send(prim, prim$1) {
   return prim.send(prim$1);
 }
 
-function end_(prim) {
-  prim.end();
-  return /* () */0;
+function status(prim, prim$1) {
+  return prim.status(prim$1);
 }
 
 function listen(prim, prim$1) {
@@ -118,12 +122,13 @@ exports.headers = headers;
 exports.params = params;
 exports.query = query;
 exports.originalUrl = originalUrl;
-exports.status = status;
+exports.end_ = end_;
 exports.json = json;
-exports.writeHead = writeHead;
+exports.$$location = $$location;
 exports.pipe = pipe;
 exports.send = send;
-exports.end_ = end_;
+exports.status = status;
+exports.writeHead = writeHead;
 exports.init = init;
 exports.listen = listen;
 exports.use = use;
