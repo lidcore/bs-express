@@ -26,6 +26,7 @@ external status : response -> int -> response = "" [@@bs.send]
 external json : response -> 'a Js.t -> unit = "" [@@bs.send]
 external writeHead : response -> int -> string Js.Dict.t Js.null_undefined -> unit = "" [@@bs.send]
 external pipe : LidcoreBsNode.Stream.readable -> response -> unit = "" [@@bs.send]
+external send : response -> string -> response = "" [@@bs.send]
 external end_ : response -> unit = "end" [@@bs.send]
 
 let writeHead resp ?headers code =

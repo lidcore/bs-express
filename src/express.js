@@ -53,6 +53,10 @@ function pipe(prim, prim$1) {
   return /* () */0;
 }
 
+function send(prim, prim$1) {
+  return prim.send(prim$1);
+}
+
 function end_(prim) {
   prim.end();
   return /* () */0;
@@ -118,6 +122,7 @@ exports.status = status;
 exports.json = json;
 exports.writeHead = writeHead;
 exports.pipe = pipe;
+exports.send = send;
 exports.end_ = end_;
 exports.init = init;
 exports.listen = listen;

@@ -14,6 +14,7 @@ val status    : response -> int -> response
 val json      : response -> 'a Js.t -> unit
 val writeHead : response -> ?headers:(string Js.Dict.t) -> int -> unit
 val pipe      : LidcoreBsNode.Stream.readable -> response -> unit
+val send      : response -> string -> response
 val end_      : response -> unit
 
 type handler = request -> response -> unit
