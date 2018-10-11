@@ -14,57 +14,89 @@ function init($staropt$star, _) {
   return app;
 }
 
+function pipe(i, o) {
+  i.pipe(o);
+  return o;
+}
+
 function writeHead(resp, headers, code) {
   resp.writeHead(code, Js_null_undefined.fromOption(headers));
   return /* () */0;
 }
 
-function body(prim) {
+function Request_000(prim) {
   return prim.body;
 }
 
-function headers(prim) {
+function Request_001(prim) {
   return prim.headers;
 }
 
-function params(prim) {
+function Request_002(prim) {
   return prim.params;
 }
 
-function query(prim) {
+function Request_003(prim) {
   return prim.query;
 }
 
-function originalUrl(prim) {
+function Request_004(prim) {
   return prim.originalUrl;
 }
 
-function end_(prim) {
+var Request = [
+  Request_000,
+  Request_001,
+  Request_002,
+  Request_003,
+  Request_004
+];
+
+function Response_000(prim) {
   prim.end();
   return /* () */0;
 }
 
-function json(prim, prim$1) {
-  prim.json(prim$1);
-  return /* () */0;
+function Response_001(prim, prim$1) {
+  return prim.get(prim$1);
 }
 
-function $$location(prim, prim$1) {
+function Response_002(prim, prim$1) {
+  return prim.json(prim$1);
+}
+
+function Response_003(prim, prim$1) {
   return prim.location(prim$1);
 }
 
-function pipe(prim, prim$1) {
-  prim.pipe(prim$1);
-  return /* () */0;
-}
-
-function send(prim, prim$1) {
+function Response_005(prim, prim$1) {
   return prim.send(prim$1);
 }
 
-function status(prim, prim$1) {
+function Response_006(prim, prim$1, prim$2) {
+  return prim.set(prim$1, prim$2);
+}
+
+function Response_007(prim, prim$1) {
+  return prim.set(prim$1);
+}
+
+function Response_008(prim, prim$1) {
   return prim.status(prim$1);
 }
+
+var Response = [
+  Response_000,
+  Response_001,
+  Response_002,
+  Response_003,
+  pipe,
+  Response_005,
+  Response_006,
+  Response_007,
+  Response_008,
+  writeHead
+];
 
 function listen(prim, prim$1) {
   prim.listen(prim$1);
@@ -117,18 +149,8 @@ var Router = [
   Router_003
 ];
 
-exports.body = body;
-exports.headers = headers;
-exports.params = params;
-exports.query = query;
-exports.originalUrl = originalUrl;
-exports.end_ = end_;
-exports.json = json;
-exports.$$location = $$location;
-exports.pipe = pipe;
-exports.send = send;
-exports.status = status;
-exports.writeHead = writeHead;
+exports.Request = Request;
+exports.Response = Response;
 exports.init = init;
 exports.listen = listen;
 exports.use = use;

@@ -12,28 +12,36 @@ let init ?(useCors=true) () =
 
 external listen : t -> int -> unit = "" [@@bs.send]
 
-type request = private {
-  body:        string Js.Dict.t;
-  headers:     string Js.Dict.t;
-  params:      string Js.Dict.t;
-  query:       string Js.Dict.t;
-  originalUrl: string
-} [@@bs.deriving abstract]
+module Request = struct
+  type t = {
+    body:        string Js.Dict.t;
+    headers:     string Js.Dict.t;
+    params:      string Js.Dict.t;
+    query:       string Js.Dict.t;
+    originalUrl: string
+  } [@@bs.deriving abstract]
+end
 
-type response
+module Response = struct
+  type t
+  external status : t -> int -> t = "" [@@bs.send]
+  external json : t -> 'a Js.t -> t  = "" [@@bs.send]
+  external writeHead : t -> int -> string Js.Dict.t Js.null_undefined -> unit = "" [@@bs.send]
+  external pipe : LidcoreBsNode.Stream.readable -> t -> unit = "" [@@bs.send]
+  let pipe i o =
+    pipe i o;
+    o
+  external send : t -> string -> t = "" [@@bs.send]
+  external end_ : t -> unit = "end" [@@bs.send]
+  external location : t -> string -> t = "" [@@bs.send]
+  external get : t -> string -> string = "" [@@bs.send]
+  external set : t -> string -> string -> t = "" [@@bs.send]
+  external headers : t -> string Js.Dict.t -> t = "set" [@@bs.send]
+  let writeHead resp ?headers code =
+    writeHead resp code (Js.Null_undefined.fromOption headers)
+end
 
-external status : response -> int -> response = "" [@@bs.send]
-external json : response -> 'a Js.t -> unit = "" [@@bs.send]
-external writeHead : response -> int -> string Js.Dict.t Js.null_undefined -> unit = "" [@@bs.send]
-external pipe : LidcoreBsNode.Stream.readable -> response -> unit = "" [@@bs.send]
-external send : response -> string -> response = "" [@@bs.send]
-external end_ : response -> unit = "end" [@@bs.send]
-external location : response -> string -> response = "" [@@bs.send]
-
-let writeHead resp ?headers code =
-  writeHead resp code (Js.Null_undefined.fromOption headers)
-
-type handler = request -> response -> unit
+type handler = Request.t -> Response.t -> unit
 
 module type Routes_t = sig
   type router

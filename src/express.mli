@@ -1,24 +1,29 @@
 type t
 
-type request
+module Request : sig
+  type t
+  val body        : t -> string Js.Dict.t
+  val headers     : t -> string Js.Dict.t
+  val params      : t -> string Js.Dict.t
+  val query       : t -> string Js.Dict.t
+  val originalUrl : t -> string
+end
 
-val body        : request -> string Js.Dict.t
-val headers     : request -> string Js.Dict.t
-val params      : request -> string Js.Dict.t
-val query       : request -> string Js.Dict.t
-val originalUrl : request -> string
+module Response : sig
+  type t
+  val end_      : t -> unit
+  val get       : t -> string -> string
+  val json      : t -> 'a Js.t -> t
+  val location  : t -> string -> t
+  val pipe      : LidcoreBsNode.Stream.readable -> t -> t
+  val send      : t -> string -> t
+  val set       : t -> string -> string -> t
+  val headers   : t -> string Js.Dict.t -> t
+  val status    : t -> int -> t
+  val writeHead : t -> ?headers:(string Js.Dict.t) -> int -> unit
+end
 
-type response
-
-val end_      : response -> unit
-val json      : response -> 'a Js.t -> unit
-val location  : response -> string -> response
-val pipe      : LidcoreBsNode.Stream.readable -> response -> unit
-val send      : response -> string -> response
-val status    : response -> int -> response
-val writeHead : response -> ?headers:(string Js.Dict.t) -> int -> unit
-
-type handler = request -> response -> unit
+type handler = Request.t -> Response.t -> unit
 
 val init : ?useCors:bool -> unit -> t
 val listen : t -> int -> unit
