@@ -17,6 +17,7 @@ module Request = struct
     body:        string Js.Dict.t;
     headers:     string Js.Dict.t;
     params:      string Js.Dict.t;
+    path:        string;
     query:       string Js.Dict.t;
     originalUrl: string
   } [@@bs.deriving abstract]

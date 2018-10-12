@@ -5,6 +5,7 @@ module Request : sig
   val body        : t -> string Js.Dict.t
   val headers     : t -> string Js.Dict.t
   val params      : t -> string Js.Dict.t
+  val path        : t -> string
   val query       : t -> string Js.Dict.t
   val originalUrl : t -> string
 end

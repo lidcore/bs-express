@@ -37,10 +37,14 @@ function Request_002(prim) {
 }
 
 function Request_003(prim) {
-  return prim.query;
+  return prim.path;
 }
 
 function Request_004(prim) {
+  return prim.query;
+}
+
+function Request_005(prim) {
   return prim.originalUrl;
 }
 
@@ -49,7 +53,8 @@ var Request = [
   Request_001,
   Request_002,
   Request_003,
-  Request_004
+  Request_004,
+  Request_005
 ];
 
 function Response_000(prim) {
