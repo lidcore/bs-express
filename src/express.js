@@ -86,7 +86,11 @@ function Response_007(prim, prim$1) {
   return prim.set(prim$1);
 }
 
-function Response_008(prim, prim$1) {
+function Response_008(prim) {
+  return prim.headersSent;
+}
+
+function Response_009(prim, prim$1) {
   return prim.status(prim$1);
 }
 
@@ -100,6 +104,7 @@ var Response = [
   Response_006,
   Response_007,
   Response_008,
+  Response_009,
   writeHead
 ];
 

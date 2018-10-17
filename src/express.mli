@@ -12,16 +12,17 @@ end
 
 module Response : sig
   type t
-  val end_      : t -> unit
-  val get       : t -> string -> string
-  val json      : t -> 'a Js.t -> t
-  val location  : t -> string -> t
-  val pipe      : LidcoreBsNode.Stream.readable -> t -> t
-  val send      : t -> string -> t
-  val set       : t -> string -> string -> t
-  val headers   : t -> string Js.Dict.t -> t
-  val status    : t -> int -> t
-  val writeHead : t -> ?headers:(string Js.Dict.t) -> int -> unit
+  val end_        : t -> unit
+  val get         : t -> string -> string
+  val json        : t -> 'a Js.t -> t
+  val location    : t -> string -> t
+  val pipe        : LidcoreBsNode.Stream.readable -> t -> t
+  val send        : t -> string -> t
+  val set         : t -> string -> string -> t
+  val headers     : t -> string Js.Dict.t -> t
+  val headersSent : t -> bool
+  val status      : t -> int -> t
+  val writeHead   : t -> ?headers:(string Js.Dict.t) -> int -> unit
 end
 
 type handler = Request.t -> Response.t -> unit

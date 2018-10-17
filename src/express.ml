@@ -24,7 +24,9 @@ module Request = struct
 end
 
 module Response = struct
-  type t
+  type t = {
+    headersSent: bool
+  } [@@bs.deriving abstract]
   external status : t -> int -> t = "" [@@bs.send]
   external json : t -> 'a Js.t -> t  = "" [@@bs.send]
   external writeHead : t -> int -> string Js.Dict.t Js.null_undefined -> unit = "" [@@bs.send]
