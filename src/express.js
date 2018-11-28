@@ -123,6 +123,11 @@ function get(prim, prim$1, prim$2) {
   return /* () */0;
 }
 
+function head(prim, prim$1, prim$2) {
+  prim.head(prim$1, prim$2);
+  return /* () */0;
+}
+
 function post(prim, prim$1, prim$2) {
   prim.post(prim$1, prim$2);
   return /* () */0;
@@ -139,16 +144,21 @@ function Router_000(prim, prim$1, prim$2) {
 }
 
 function Router_001(prim, prim$1, prim$2) {
-  prim.post(prim$1, prim$2);
+  prim.head(prim$1, prim$2);
   return /* () */0;
 }
 
 function Router_002(prim, prim$1, prim$2) {
+  prim.post(prim$1, prim$2);
+  return /* () */0;
+}
+
+function Router_003(prim, prim$1, prim$2) {
   prim.put(prim$1, prim$2);
   return /* () */0;
 }
 
-function Router_003(prim) {
+function Router_004(prim) {
   return prim.Router();
 }
 
@@ -156,7 +166,8 @@ var Router = [
   Router_000,
   Router_001,
   Router_002,
-  Router_003
+  Router_003,
+  Router_004
 ];
 
 exports.Request = Request;
@@ -165,6 +176,7 @@ exports.init = init;
 exports.listen = listen;
 exports.use = use;
 exports.get = get;
+exports.head = head;
 exports.post = post;
 exports.put = put;
 exports.Router = Router;

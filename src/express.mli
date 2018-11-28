@@ -37,6 +37,7 @@ val use : t -> middleware -> unit
 module type Routes_t = sig
   type router
   val get  : router -> string -> handler -> unit
+  val head : router -> string -> handler -> unit
   val post : router -> string -> handler -> unit
   val put  : router -> string -> handler -> unit
 end

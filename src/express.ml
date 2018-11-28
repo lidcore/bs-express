@@ -49,6 +49,7 @@ type handler = Request.t -> Response.t -> unit
 module type Routes_t = sig
   type router
   val get  : router -> string -> handler -> unit
+  val head : router -> string -> handler -> unit
   val post : router -> string -> handler -> unit
   val put  : router -> string -> handler -> unit
 end
@@ -60,6 +61,7 @@ end
 module Routes(Config:RoutesConfig_t) = struct
   type router = Config.router
   external get  : router -> string -> handler -> unit = "" [@@bs.send]
+  external head : router -> string -> handler -> unit = "" [@@bs.send]
   external post : router -> string -> handler -> unit = "" [@@bs.send]
   external put  : router -> string -> handler -> unit = "" [@@bs.send]
 end
